@@ -9,6 +9,8 @@ let uppercase = document.getElementById("uppercase");
 let lowercase = document.getElementById("lowercase");
 let passBox = document.querySelector(".passBox");
 
+let copyBtn = document.getElementById("copyBtn");
+
 
 btn.addEventListener("click",() =>{
     btn.style.backgroundColor = "blue";
@@ -58,6 +60,18 @@ function generatePass(){
 
 
 
+copyBtn.addEventListener('click', ()=>{
 
+    if(passBox.value != ""){
 
+        navigator.clipboard.writeText(passBox.value);
 
+        copyBtn.textContent = "check";
+        copyBtn.title = "Password copied";
+
+        setTimeout(()=>{
+            copyBtn.textContent = "content_copy";
+            copyBtn.title = "";
+        }, 1000);
+    }
+});
